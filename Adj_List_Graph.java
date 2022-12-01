@@ -18,7 +18,7 @@ public class Adj_List_Graph {
     // undirected graph; for directed graph remove the second line
     public void addEdge(int u, int v) {
         adj.get(u).add(v);
-        // adj.get(v).add(u); //remove this line, if graph is directed
+        adj.get(v).add(u); // remove this line, if graph is directed
     }
 
     // A utility function to print the adjacency list
@@ -27,10 +27,10 @@ public class Adj_List_Graph {
     public void printGraph() {
         for (int i = 0; i < n; i++) {
 
-            System.out.println("\nAdjacency list of vertex" + i);
+            System.out.println("\nAdjacency list of vertex" + (i + 1));
             System.out.print("head");
             for (int j = 0; j < adj.get(i).size(); j++) {
-                System.out.print(" -> " + adj.get(i).get(j));
+                System.out.print(" -> " + (adj.get(i).get(j) + 1));
             }
             System.out.println();
         }
@@ -59,7 +59,7 @@ public class Adj_List_Graph {
                     npath[adj.get(u).get(j)]++;
             }
         }
-        System.out.println("dist[" + search + "] = " + (int) dist[search]);
-        System.out.println("npath[" + search + "] = " + npath[search]);
+        System.out.println("dist[" + (search + 1) + "] = " + (int) dist[search]);
+        System.out.println("npath[" + (search + 1) + "] = " + npath[search]);
     }
 }
