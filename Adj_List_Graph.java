@@ -55,7 +55,7 @@ public class Adj_List_Graph {
                     q.add(adj.get(u).get(j));
                     dist[adj.get(u).get(j)] = dist[u] + 1;
                     npath[adj.get(u).get(j)]++;
-                } else if (dist[adj.get(u).get(j)] == dist[u] + 1)
+                } else if (dist[adj.get(u).get(j)] == dist[adj.get(u).get(j)])
                     npath[adj.get(u).get(j)]++;
             }
         }
