@@ -1,0 +1,21 @@
+5
+0 1 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 
+
+while (!q.isEmpty()) {
+            u = q.poll();
+            for (int j = 0; j < adj.get(u).size(); j++) {
+                if (dist[adj.get(u).get(j)] == Double.POSITIVE_INFINITY) {
+                    q.add(adj.get(u).get(j));
+                    dist[adj.get(u).get(j)] = dist[u] + 1;
+                } else if (dist[u] + 1 < dist[adj.get(u).get(j)]){
+                    dist[adj.get(u).get(j)] = dist[u] + 1;
+                    npath[adj.get(u).get(j)] = 1;
+                }
+                if (npath[adj.get(u).get(j)] == 0) {
+                    npath[adj.get(u).get(j)]++;
+                } else if (dist[adj.get(u).get(j)] > dist[u] + 1) {
+                    npath[adj.get(u).get(j)]++;
+                } else if (dist[adj.get(u).get(j)] == dist[u] + 1)
+                    found++;
+            }
+        }
